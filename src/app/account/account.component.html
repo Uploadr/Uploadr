@@ -1,1 +1,26 @@
-<p>account works!</p>
+<div>
+    <form>
+        <input type="text" placeholder="First Name" [(ngModel)]="input_username" name="username"><br/>
+        <input type="text" placeholder="Last Name" [(ngModel)]="input_password" name="password"><br/>
+    </form>
+    <button (click)="newUser()">New</button>
+    <button (click)="signIn()">Existing</button>
+    <p>{{ status }}</p>
+    <br/>
+
+    <!-- this can be removed later, right now it just shows functionality -->
+    <div *ngIf="users">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>USERNAME</th>
+                <th>PASSWORD</th>
+            </tr>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.password}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
