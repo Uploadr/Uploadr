@@ -38,7 +38,7 @@ export class ImageService {
    */
   async getImages() : Promise<Image[]>{
     let images: Image[] | void = await this.http.get<Image[]>(
-      '${this.imagesURL}'
+      `${this.imagesURl}`
     ).toPromise().catch(err => {});
 
     if(!images) images = [];
@@ -51,7 +51,7 @@ export class ImageService {
    */
   async searchImages(tags: string[]) : Promise<Image[]>{
     let images: Image[] | void = await this.http.get<Image[]>(
-      '${this.imagesURL}'
+      `${this.imagesURL}`
     ).toPromise().catch(err => {});
 
     if(!images) images = [];
