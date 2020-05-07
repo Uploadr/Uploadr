@@ -9,7 +9,7 @@ import { Image } from './image';
 })
 export class ImageService {
 
-  private imagesURl: string = "api/images";
+  private imagesUrl: string = "api/images";
   
   private httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -28,8 +28,8 @@ export class ImageService {
   
   uploadImage(name : string, user: string, url: string, tags : string[]){
     
-    this.http.post<Image>(
-      this.imagesURl, {name, user, url, tags} as Image);
+    return this.http.post<Image>(
+      this.imagesUrl, {name, user, url, tags} as Image, this.httpOptions);
   }
   
   /**
@@ -38,7 +38,7 @@ export class ImageService {
    */
   async getImages() : Promise<Image[]>{
     let images: Image[] | void = await this.http.get<Image[]>(
-      '${this.imagesURL}'
+      `${this.imagesUrl}`
     ).toPromise().catch(err => {});
 
     if(!images) images = [];
@@ -51,7 +51,7 @@ export class ImageService {
    */
   async searchImages(tags: string[]) : Promise<Image[]>{
     let images: Image[] | void = await this.http.get<Image[]>(
-      '${this.imagesURL}'
+      `${this.imagesUrl}`
     ).toPromise().catch(err => {});
 
     if(!images) images = [];

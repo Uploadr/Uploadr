@@ -16,6 +16,8 @@ export class UserServiceService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
+    currentUser : string;
+
     constructor(
         private http: HttpClient
     ) { }
@@ -75,6 +77,8 @@ export class UserServiceService {
     async signIn(username: string, password: string): Promise<boolean> {
         let users : User[] | void;
         
+        this.currentUser = username;
+
         users = await this.http.get<User[]>(
             `${this.usersUrl}/?username=${username}&password=${password}` // nice
             ).toPromise().catch((err) => {});
@@ -95,6 +99,10 @@ export class UserServiceService {
         if(!users) users = [];
 
         return users;
+    }
+    //returns the user that is currently signed in
+    getCurrentUser(){
+        return this.currentUser;
     }
 }
 

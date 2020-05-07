@@ -1,1 +1,21 @@
-<p>image-list works!</p>
+<form id="form">
+    <input type="text" placeholder="Image Url" id="url"><br/>
+    <input type="text" placeholder="Name" id="name"><br/>
+    <input type="text" placeholder="Tags" id="tags"><br/>
+    <button (click)="addTag()" >Add Tag</button>
+    <div style="border: 1px">
+        <p>Tags: <span *ngFor="let tag of tags" style="padding: 5px; border: 1px solid black;">{{tag}}</span></p>
+    </div>
+</form>
+<button (click)="uploadImage()">Upload Image</button>
+
+<div *ngIf="images">
+    <div class="flex-container">
+        <div *ngFor="let image of images" style="padding: 20px;">
+                <p>Title: {{image.name}}</p>
+                <p>Uploaded By: {{image.user}}</p>
+                <p>Tags: <span *ngFor="let iTag of image.tags" style="padding: 5px; border: 1px solid black;">{{iTag}}</span></p>
+            <img src={{image.url}} alt={{image.name}} style="max-height: 200px; max-width: 200px;">
+        </div>
+      </div>
+</div>  
