@@ -104,6 +104,10 @@ export class UserServiceService {
     getCurrentUser(){
         return this.currentUser;
     }
+
+    signOut(){
+        this.currentUser = "";
+    }
 }
 
 export interface SignUpResponse {

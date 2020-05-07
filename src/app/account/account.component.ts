@@ -9,6 +9,7 @@ import { UserServiceService, SignUpResponse } from '../user-service.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
+  static loggedIn: boolean;
 
   constructor(private userService : UserServiceService) { }
 
@@ -26,7 +27,18 @@ export class AccountComponent implements OnInit {
   input_username : string;
   input_password : string;
   
-  loggedIn: boolean; //monitor log in status
+  public loggedIn : boolean; //monitor log in status
+
+    logIn():void{
+        this.loggedIn = true;
+    }
+    logOut(): void{
+        this.loggedIn = false;
+        this.userService.signOut();
+    }
+    isLoggedIn():boolean{
+        return this.loggedIn;
+    }
 
   newUser() : void {
     this.userService.addUser(

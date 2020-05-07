@@ -10,8 +10,6 @@ import { SearchComponent } from './search/search.component';
 import { HttpClientModule }    from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
-import { LogOutComponent } from './account/log-out/log-out.component';
-import { LogInComponent } from './account/log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +17,6 @@ import { LogInComponent } from './account/log-in/log-in.component';
     ImageListComponent,
     AccountComponent,
     SearchComponent,
-    LogOutComponent,
-    LogInComponent
   ],
   imports: [
     BrowserModule,
