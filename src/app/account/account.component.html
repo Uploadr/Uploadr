@@ -1,14 +1,28 @@
-<div>
+
+  <div *ngIf = "!loggedIn" >
+      <app-log-in></app-log-in>
+  </div>
+  <div *ngIf = "loggedIn">
+      <app-log-out></app-log-out>
+  </div>
+  
+  
+  
+  
+  
+
+
+<!-- <div>
     <form>
-        <input type="text" placeholder="First Name" [(ngModel)]="input_username" name="username"><br/>
-        <input type="text" placeholder="Last Name" [(ngModel)]="input_password" name="password"><br/>
+        <input type="text" placeholder="Username" [(ngModel)]="input_username" name="username"><br/>
+        <input type="text" placeholder="Password" [(ngModel)]="input_password" name="password"><br/>
     </form>
     <button (click)="newUser()">New</button>
     <button (click)="signIn()">Existing</button>
     <p>{{ status }}</p>
     <br/>
 
-    <!-- this can be removed later, right now it just shows functionality -->
+  this can be removed later, right now it just shows functionality 
     <div *ngIf="users">
         <table>
             <tr>
@@ -23,4 +37,4 @@
             </tr>
         </table>
     </div>
-</div>
+</div> -->
