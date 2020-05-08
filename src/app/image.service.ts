@@ -51,26 +51,19 @@ export class ImageService {
    */
   async searchImages(tags: string[]) : Promise<Image[]>{
     let images: Image[] | void = await this.http.get<Image[]>(
-      `${this.imagesUrl}`
+      this.imagesUrl
     ).toPromise().catch(err => {});
 
     if(!images) images = [];
-    let result : Image[];
-    images.forEach(function (value){ //For each image, check the tags and see if the searched tags are all in there
-      if (this.arrayContainsArray(value.tags, tags)){
-        result.push(value);
-      }
-    })
+    let result : Image[] = images.filter((image) => this.arrayContainsArray(image.tags, tags));
     return result;
   }
 
   arrayContainsArray (superset, subset){
-    if (0 === subset.length){ //Empty array
-      return false
-    }
-    return subset.every(function (value){ //Check every tag and see if they are in the array
-      return (superset.indexOf(value) >= 0);
-    })
+    if (0 === subset.length) return false; // empty array 
+
+    //Check every tag and see if they are in the array
+    return subset.every((value) => superset.indexOf(value) >= 0);
   }
 
 }
