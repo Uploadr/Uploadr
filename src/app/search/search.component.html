@@ -1,22 +1,20 @@
-<button (click)="searchTags(true)" >Search Tags</button>
-<button (click)="searchTags(false)" >Search Titles</button>
+<input type="checkbox" [(ngModel)]="tagSearch" name="tag-search-checkbox" value="1">
+<label for="tag-search-checkbox">use tag search</label> 
 <div *ngIf="tagSearch">
     <input [(ngModel)]="tag" id="tag">
     <button (click)="addTag()" >Add Tag</button>
     <p>Tags: <span *ngFor="let newTag of tags" style="padding: 5px; border: 1px solid black;">{{newTag}}</span></p>
     <button (click)= "searchImages()">Search</button>
 </div>
+
 <div *ngIf="!tagSearch">
-    <input [(ngModel)]="name" id="name">
+    <input [(ngModel)]="name" id="name" >
     <button (click)= "searchTitle()">Search</button>
-<div class="search-box">
-    <input [(ngModel)]="name" id="search-field"><button (click)= "searchImages()">Search</button>
 </div>
-<div *ngIf="showResults">
-    <div *ngFor="let image of imageResults">
-        <p>Id: {{image.id}}</p>
-        <p>Name: {{image.name}}</p>
-        <p>User: {{image.user}}</p>
-        <p>URL: {{image.url}}</p>
-    </div>
+
+<div *ngFor="let image of imageResults" style="padding: 20px;">
+    <p>Title: {{image.name}}</p>
+    <p>Uploaded By: {{image.user}}</p>
+    <p>Tags: <span *ngFor="let iTag of image.tags" style="padding: 5px; border: 1px solid black;">{{iTag}}</span></p>
+    <img src={{image.url}} alt={{image.name}} style="max-height: 200px; max-width: 200px;">
 </div>
