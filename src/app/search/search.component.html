@@ -1,1 +1,11 @@
-<p>search works!</p>
+<div>
+    <input [(ngModel)]="name"><button (click)= "searchImages()">Search</button>
+</div>
+<div *ngIf="showResults">
+    <div *ngFor="let image of imageResults">
+        <p>Id: {{image.id}}</p>
+        <p>Name: {{image.name}}</p>
+        <p>User: {{image.user}}</p>
+        <p>URL: {{image.url}}</p>
+    </div>
+</div>
