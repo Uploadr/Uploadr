@@ -1,5 +1,5 @@
-<div>
-    <input [(ngModel)]="name"><button (click)= "searchImages()">Search</button>
+<div class="search-box">
+    <input [(ngModel)]="name" id="search-field"><button (click)= "searchImages()">Search</button>
 </div>
 <div *ngIf="showResults">
     <div *ngFor="let image of imageResults">
