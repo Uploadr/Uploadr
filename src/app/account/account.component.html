@@ -1,22 +1,22 @@
 
 <div *ngIf = "!isLoggedIn()" class = "container">
     <div class = "card">
-       <div class = "card-header"><h4>Log In</h4></div>
+       <div class = "card-header">
+           <h2>Log In</h2>
+        </div>
        <div class = "card-body">
-
-            <div class = "form-group">
-                <input class = "form-control" type = "text"  [(ngModel)]="input_username" placeholder="Username" name = "username">
+            <div class="input-group">
+                <div class = "form-group">
+                    <input class = "form-control" type = "text"  [(ngModel)]="input_username" placeholder="Username" name = "username">
+                </div>
+                <div class = "form-group">
+                    <input class = "form-control" type = "text" [(ngModel)]="input_password" placeholder="Password" name = "password">
+                </div>
             </div>
-            <div class = "form-group">
-                <input class = "form-control" type = "text" [(ngModel)]="input_password" placeholder="Password" name = "password">
-            </div>
-            <div class="form-group">
+            <div class="form-group buttons-group">
                 <button class="btn btn-primary" (click) = "signIn()" >Log In</button>
-            
-                <button class="btn btn-primary" (click) = "newUser()">Create New Account!</button>
+                <a href="#" (click)="newUser()">Sign Up</a>
             </div>
-            
-
        </div>
     </div>
 </div>
@@ -24,48 +24,12 @@
 <div *ngIf = "isLoggedIn()">
     <div class = "container">
         <div class = "card">
-           <div class = "card-header"><h4>Warning! You are about to Log Out</h4></div>
+           <!-- <div class = "card-header"><h4>Warning! You are about to Log Out</h4></div> -->
            <div class = "card-body">
-    
-                
                 <div class="form-group">
                     <button class="btn btn-danger" (click) = "logOut()">Log Out</button>
                 </div>
-                
            </div>
         </div>
     </div>
 </div>
-  
-  
-  
-  
-  
-
-
-<!-- <div>
-    <form>
-        <input type="text" placeholder="Username" [(ngModel)]="input_username" name="username"><br/>
-        <input type="text" placeholder="Password" [(ngModel)]="input_password" name="password"><br/>
-    </form>
-    <button (click)="newUser()">New</button>
-    <button (click)="signIn()">Existing</button>
-    <p>{{ status }}</p>
-    <br/>
-
-  this can be removed later, right now it just shows functionality 
-    <div *ngIf="users">
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>USERNAME</th>
-                <th>PASSWORD</th>
-            </tr>
-            <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.password}}</td>
-            </tr>
-        </table>
-    </div>
-</div> -->

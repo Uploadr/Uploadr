@@ -1,0 +1,16 @@
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+}
+.input-group {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+}
+.buttons-group {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}

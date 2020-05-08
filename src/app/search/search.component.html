@@ -9,6 +9,8 @@
 <div *ngIf="!tagSearch">
     <input [(ngModel)]="name" id="name">
     <button (click)= "searchTitle()">Search</button>
+<div class="search-box">
+    <input [(ngModel)]="name" id="search-field"><button (click)= "searchImages()">Search</button>
 </div>
 <div *ngIf="showResults">
     <div *ngFor="let image of imageResults">
