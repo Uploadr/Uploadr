@@ -1,5 +1,14 @@
-<div>
-    <input [(ngModel)]="name"><button (click)= "searchImages()">Search</button>
+<button (click)="searchTags(true)" >Search Tags</button>
+<button (click)="searchTags(false)" >Search Titles</button>
+<div *ngIf="tagSearch">
+    <input [(ngModel)]="tag" id="tag">
+    <button (click)="addTag()" >Add Tag</button>
+    <p>Tags: <span *ngFor="let newTag of tags" style="padding: 5px; border: 1px solid black;">{{newTag}}</span></p>
+    <button (click)= "searchImages()">Search</button>
+</div>
+<div *ngIf="!tagSearch">
+    <input [(ngModel)]="name" id="name">
+    <button (click)= "searchTitle()">Search</button>
 </div>
 <div *ngIf="showResults">
     <div *ngFor="let image of imageResults">
